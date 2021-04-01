@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	
+		<meta charset="ISO-8859-1">
+		
+		<title>Create Players</title>
+		
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		
+	</head>
+	
+	<body>
+		<form th:object="${newPlayers}" th:action="@{/createPlayers/{id}(id=${newPlayers.id})}" method='POST'>
+		
+			First Name: <input name="firstName" size="15" th:field="*{firstName}"> <br />
+			Last Name: <input name="lastName" size="15" th:field="*{lastName}"> <br />
+			Age: <input name="age" size="5" th:field="*{age}"> <br />
+			Gender: <input name="gender" size="10" th:field="*{gender}"> <br />	
+			Tournament Id #: <input name="tournament" size="10" th:field="*{tournament.id}"> <br />	
+			<input name="submit" type="submit" value="submit"> <br />
+			
+		</form>
+		
+		<div>
+			<a href="../viewAllPlayers">View All Players</a>
+			<a href = "/index.html">Home Page</a>
+		</div>
+	
+	</body>
+	
+</html>

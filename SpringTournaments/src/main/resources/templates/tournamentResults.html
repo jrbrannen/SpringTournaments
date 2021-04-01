@@ -1,0 +1,38 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1">
+		
+		<title>View All Tournaments</title>
+		
+		<link rel="stylesheet" type="text/css" th:href="styles.css" />
+		
+	</head>
+	
+	<body>
+		
+		<form>
+			<table>
+				<tr th:each = "currentTournament : ${tournament}">
+					<td th:text ="${currentTournament.id}"/>
+					<td th:text ="${currentTournament.name}"/>
+					<td th:text ="${currentTournament.maxPlayers}"/>
+					<td th:text ="${currentTournament.games}"/> 
+					<td th:text ="${currentTournament.prizeMoney}"/>
+				 	<td th:text = "${currentTournament.players}"/>
+					
+					<td><a th:href="@{/edit/{id}(id=${currentTournament.id})}">Edit</a></td>
+					<td><a th:href="@{/delete/{id}(id=${currentTournament.id})}">Delete</a>
+				</tr>
+			</table>
+		</form>
+		<div>
+			<a href = "../createTournament">Add A New Tournament</a>
+			<a href = "/index.html">Home Page</a>
+		</div>
+		
+	</body>
+	
+</html>

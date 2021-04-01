@@ -1,0 +1,39 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1">
+		
+		<title>Players</title>
+		
+		<link rel="stylesheet" type="text/css" th:href="styles.css" />
+		
+	</head>
+	
+	<body>
+		
+		<form>
+			<table>
+				<tr th:each = "currentPlayers : ${players}">
+					<!-- <td th:text ="${currentPlayers.id}"/>-->
+					<td th:text ="${currentPlayers.firstName}"/>
+					<td th:text ="${currentPlayers.LastName}"/>
+					<td th:text ="${currentPlayers.age}"/>
+					<td th:text ="${currentPlayers.gender}"/>
+					<td th:text ="${currentPlayers.tournament}"/>
+					
+					<td><a th:href="@{/pEdit/{id}(id=${currentPlayers.id})}">Edit</a></td>
+					<td><a th:href="@{/pDelete/{id}(id=${currentPlayers.id})}">Delete</a>
+
+				</tr>
+			</table>
+		</form>
+		<div>
+			<a href = "../createPlayers">Add A New Player</a>
+			<a href = "/index.html">Home Page</a>
+		</div>
+		
+	</body>
+	
+</html>
